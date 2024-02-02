@@ -286,7 +286,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.picoxr": {
-      "version": "file:C:/Users/roger/Dropbox/Mi PC (Roger)/Downloads/PICO Unity Integration SDK 240 (1)",
+      "version": "file:../PICO Unity Integration SDK 240",
       "depth": 0,
       "source": "local",
       "dependencies": {
