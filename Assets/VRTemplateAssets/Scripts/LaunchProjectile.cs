@@ -2,9 +2,6 @@ using UnityEngine;
 
 namespace Unity.VRTemplate
 {
-    /// <summary>
-    /// Apply forward force to instantiated prefab
-    /// </summary>
     public class LaunchProjectile : MonoBehaviour
     {
         [SerializeField]
@@ -17,14 +14,23 @@ namespace Unity.VRTemplate
 
         [SerializeField]
         [Tooltip("The speed at which the projectile is launched")]
-        float m_LaunchSpeed = 99999f;
-
+        float m_LaunchSpeed = 0.5f;
+/*
         public void Fire()
         {
-            GameObject newObject = Instantiate(m_ProjectilePrefab, m_StartPoint.position, m_StartPoint.rotation, null);
+            GameObject newBullet = Instantiate(m_ProjectilePrefab, m_StartPoint.position, m_StartPoint.rotation, null);
 
-            if (newObject.TryGetComponent(out Rigidbody rigidBody))
+            if (newBullet.TryGetComponent(out Rigidbody rigidBody))
                 ApplyForce(rigidBody);
+        }
+        */
+        public void Fire()
+        {
+            GameObject newBullet = Instantiate(m_ProjectilePrefab, m_StartPoint.position, m_StartPoint.rotation, null);
+
+            newBullet.GetComponent<Rigidbody>().AddForce(m_StartPoint.forward* m_LaunchSpeed);
+
+            Destroy(newBullet, 2);
         }
 
         void ApplyForce(Rigidbody rigidBody)
