@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Unity.VRTemplate
 {
+    /// <summary>
+    /// Apply forward force to instantiated prefab
+    /// </summary>
     public class LaunchProjectile : MonoBehaviour
     {
         [SerializeField]
@@ -14,29 +17,14 @@ namespace Unity.VRTemplate
 
         [SerializeField]
         [Tooltip("The speed at which the projectile is launched")]
-        float m_LaunchSpeed = 0.5f;
-
-        [SerializeField]
-        [Tooltip("The animation of explosion")]
-        GameObject m_ExplosionBullet = null;
+        float m_LaunchSpeed = 1.0f;
 
         public void Fire()
         {
-               // Instanciar un nuevo proyectil
-                GameObject newBullet = Instantiate(m_ProjectilePrefab, m_StartPoint.position, m_StartPoint.rotation);
+            GameObject newObject = Instantiate(m_ProjectilePrefab, m_StartPoint.position, m_StartPoint.rotation, null);
 
-    // Aplicar fuerza al proyectil
-    Rigidbody bulletRigidbody = newBullet.GetComponent<Rigidbody>();
-    if (bulletRigidbody != null)
-    {
-        bulletRigidbody.AddForce(m_StartPoint.forward * m_LaunchSpeed, ForceMode.Impulse);
-    }
-
-    // Instanciar la explosión en la misma posicigón y rotación que el proyectil
-    Instantiate(m_ExplosionBullet, m_StartPoint.position, m_StartPoint.rotation);
-
-    // Destruir el proyectil después de un cierto tiempo
-    Destroy(newBullet, 2);
+            if (newObject.TryGetComponent(out Rigidbody rigidBody))
+                ApplyForce(rigidBody);
         }
 
         void ApplyForce(Rigidbody rigidBody)
@@ -44,6 +32,5 @@ namespace Unity.VRTemplate
             Vector3 force = m_StartPoint.forward * m_LaunchSpeed;
             rigidBody.AddForce(force);
         }
-
     }
 }
