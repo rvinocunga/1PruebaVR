@@ -9,6 +9,13 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("UnJugador");
     }
 
+    public void Multijugador()
+    {
+        // Se tendría que abrir una nueva interfaz para 
+        // que elija si crear partida o ver las que están creada
+
+    }
+
     public void BotonQuit()
     {
         Debug.Log("Quitamos la app");
