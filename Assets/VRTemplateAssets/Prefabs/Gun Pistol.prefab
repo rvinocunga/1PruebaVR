@@ -92,15 +92,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4878850369403266, guid: a78a725941312494b930d664f3b315d0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.075
       objectReference: {fileID: 0}
     - target: {fileID: 4878850369403266, guid: a78a725941312494b930d664f3b315d0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2
+      value: 1.03
       objectReference: {fileID: 0}
     - target: {fileID: 4878850369403266, guid: a78a725941312494b930d664f3b315d0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 37.66
+      value: 37.236
       objectReference: {fileID: 0}
     - target: {fileID: 4878850369403266, guid: a78a725941312494b930d664f3b315d0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -445,6 +445,7 @@ MonoBehaviour:
   m_ProjectilePrefab: {fileID: 3377224221485343709, guid: f24467e0f038bb04a8f032cecabb22eb, type: 3}
   m_StartPoint: {fileID: 309116414417335201}
   m_LaunchSpeed: 2500
+  m_ExplosionBullet: {fileID: 1782395880954752, guid: 3dd9cf2e209c504448f1c4c6835675cf, type: 3}
 --- !u!114 &8276159947643934783
 MonoBehaviour:
   m_ObjectHideFlags: 0
