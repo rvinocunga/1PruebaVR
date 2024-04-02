@@ -20,28 +20,37 @@ namespace Unity.VRTemplate
         [Tooltip("The animation of explosion")]
         GameObject m_ExplosionBullet = null;
 
+        // sonido
+        public AudioClip sonidoDisparo;
+        AudioSource audioS;
+
+        void Start()
+        {
+            audioS = GetComponent<AudioSource> ();
+        }
+
         public void Fire()
         {
-               // Instanciar un nuevo proyectil
-                GameObject newBullet = Instantiate(m_ProjectilePrefab, m_StartPoint.position, m_StartPoint.rotation);
+            // Instanciar un nuevo proyectil
+            GameObject newBullet = Instantiate(m_ProjectilePrefab, m_StartPoint.position, m_StartPoint.rotation);
 
-                // Aplicar fuerza al proyectil
-                Rigidbody bulletRigidbody = newBullet.GetComponent<Rigidbody>();
-                if (bulletRigidbody != null)
-                {
-                    bulletRigidbody.AddForce(m_StartPoint.forward * m_LaunchSpeed, ForceMode.Impulse);
-                }
+            // Aplicar fuerza al proyectil
+            Rigidbody bulletRigidbody = newBullet.GetComponent<Rigidbody>();
+            if (bulletRigidbody != null)
+            {
+                bulletRigidbody.AddForce(m_StartPoint.forward * m_LaunchSpeed, ForceMode.Impulse);
+            }
 
-                // Instanciar la explosión en la misma posicigón y rotación que el proyectil
-                GameObject explosion = Instantiate(m_ExplosionBullet, m_StartPoint.position, m_StartPoint.rotation);
+            audioS.PlayOneShot(sonidoDisparo); 
 
-                
-                // Destruir la explosion
-                Destroy(explosion, 1);
+            // Instanciar la explosión en la misma posición y rotación que el proyectil
+            GameObject explosion = Instantiate(m_ExplosionBullet, m_StartPoint.position, m_StartPoint.rotation);
 
-                // Destruir el proyectil después de un cierto tiempo
-                Destroy(newBullet, 2);
-    
+            // Destruir la explosión
+            Destroy(explosion, 1);
+
+            // Destruir el proyectil después de un cierto tiempo
+            Destroy(newBullet, 2);
         }
 
         void ApplyForce(Rigidbody rigidBody)
