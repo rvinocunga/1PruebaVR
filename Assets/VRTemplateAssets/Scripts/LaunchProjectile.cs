@@ -20,6 +20,15 @@ namespace Unity.VRTemplate
         [Tooltip("The animation of explosion")]
         GameObject m_ExplosionBullet = null;
 
+        // sonido
+        public AudioClip sonidoDisparo;
+        AudioSource audioS;
+
+        void Start()
+        {
+            audioS = GetComponent<AudioSource> ();
+        }
+
         public void Fire()
         {
             // Instanciar un nuevo proyectil
@@ -31,6 +40,8 @@ namespace Unity.VRTemplate
             {
                 bulletRigidbody.AddForce(m_StartPoint.forward * m_LaunchSpeed, ForceMode.Impulse);
             }
+
+            audioS.PlayOneShot(sonidoDisparo); 
 
             // Instanciar la explosión en la misma posición y rotación que el proyectil
             GameObject explosion = Instantiate(m_ExplosionBullet, m_StartPoint.position, m_StartPoint.rotation);

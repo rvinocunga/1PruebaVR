@@ -14,11 +14,11 @@ public class SFXManager : MonoBehaviour
     }
 
     void OnEnable() {
-        Health.OnDamaged += HandleOnDamaged;
+        //Health.OnDamaged += HandleOnDamaged;
     }
 
     void OnDisabled () {
-        Health.OnDamaged -= HandleOnDamaged;
+        //Health.OnDamaged -= HandleOnDamaged;
     }
 
     void HandleOnDamaged (GameObject go) {
