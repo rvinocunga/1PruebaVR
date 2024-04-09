@@ -22,11 +22,11 @@ namespace Unity.VRTemplate
 
         // sonido
         public AudioClip sonidoDisparo;
-        AudioSource audioS;
+        private AudioSource audioDisparo;
 
         void Start()
         {
-            audioS = GetComponent<AudioSource> ();
+            audioDisparo = GetComponent<AudioSource> ();
         }
 
         public void Fire()
@@ -41,7 +41,7 @@ namespace Unity.VRTemplate
                 bulletRigidbody.AddForce(m_StartPoint.forward * m_LaunchSpeed, ForceMode.Impulse);
             }
 
-            audioS.PlayOneShot(sonidoDisparo); 
+            audioDisparo.PlayOneShot(sonidoDisparo, 1.0f); 
 
             // Instanciar la explosión en la misma posición y rotación que el proyectil
             GameObject explosion = Instantiate(m_ExplosionBullet, m_StartPoint.position, m_StartPoint.rotation);

@@ -14,6 +14,7 @@ public class MenuManager : MonoBehaviour
         // Se tendría que abrir una nueva interfaz para 
         // que elija si crear partida o ver las que están creada
 
+        SceneManager.LoadScene("Demo");
     }
 
     public void BotonQuit()
