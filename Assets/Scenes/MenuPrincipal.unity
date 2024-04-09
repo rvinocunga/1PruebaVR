@@ -20800,7 +20800,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1717351594}
   m_Layer: 0
-  m_Name: Lobby
+  m_Name: LobbyInicio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
