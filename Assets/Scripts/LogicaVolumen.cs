@@ -36,4 +36,5 @@ public class LogicaVolumen : MonoBehaviour
             imagenMute.enabled = false;
         }
     }
+
 }
