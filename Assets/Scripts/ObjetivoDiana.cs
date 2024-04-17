@@ -6,13 +6,15 @@ public class ObjetivoDiana : MonoBehaviour
 {
 
     public int valor;
-    public GameManager gameManager;
+    public AudioClip sonidoRomper;
 
     private void OnCollisionEnter(Collision collision)
     {
+        
         if(collision.gameObject.CompareTag("Misil"))
         {
-            gameManager.SumarPuntos(valor);
+            GameManager.Instance.SumarPuntos(valor);
+            AudioManager.Instance.ReproducirSonido(sonidoRomper);
             Destroy(this.gameObject);
         }
     }
