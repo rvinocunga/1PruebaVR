@@ -769,14 +769,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DianaPrefab (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 7214512925987246403, guid: 787b8538f113a024c87fbc7048422d55, type: 3}
-      propertyPath: valor
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7214512925987246403, guid: 787b8538f113a024c87fbc7048422d55, type: 3}
-      propertyPath: gameManager
-      value: 
-      objectReference: {fileID: 1112651376}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11194,6 +11186,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 766649326}
     m_Modifications:
+    - target: {fileID: 384063839357998527, guid: 787b8538f113a024c87fbc7048422d55, type: 3}
+      propertyPath: m_Constraints
+      value: 126
+      objectReference: {fileID: 0}
     - target: {fileID: 2993759701684008693, guid: 787b8538f113a024c87fbc7048422d55, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.54
