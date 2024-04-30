@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
+    public Boton scriptBoton;
     public float timer = 0;
     public TextMeshProUGUI textTimer;
     private bool isRunning = false;
@@ -20,6 +21,8 @@ public class Timer : MonoBehaviour
             {
                 timer = 0;
                 Debug.Log("Acabó el temporizador");
+                scriptBoton.acabaTemporizador();
+                isRunning = false;
                 //SceneManager.LoadScene("MenuPrincipal");
             }
         }
@@ -30,4 +33,6 @@ public class Timer : MonoBehaviour
     {
         isRunning = true;
     }
+
+    
 }

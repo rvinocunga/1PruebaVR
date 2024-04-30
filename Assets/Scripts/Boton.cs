@@ -5,15 +5,23 @@ using UnityEngine;
 public class Boton : MonoBehaviour
 {
     public Timer timerScript; // Referencia al script del temporizador
-
+    public GameObject cristal;
+    public GameObject objetivos;
         // Si el personaje toca el cubo
         void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-
+            cristal.SetActive(false);
+            objetivos.SetActive(true);
             timerScript.StartTimer();
             Destroy(gameObject);
         }
+    }
+        
+    public void acabaTemporizador()
+    {
+        cristal.SetActive(true);
+        objetivos.SetActive(false);
     }
 }
