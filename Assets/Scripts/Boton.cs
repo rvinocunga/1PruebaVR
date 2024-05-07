@@ -7,6 +7,7 @@ public class Boton : MonoBehaviour
     public Timer timerScript; // Referencia al script del temporizador
     public GameObject cristal;
     public GameObject objetivos;
+
         // Si el personaje toca el cubo
         void OnTriggerEnter(Collider other)
     {
@@ -15,7 +16,7 @@ public class Boton : MonoBehaviour
             cristal.SetActive(false);
             objetivos.SetActive(true);
             timerScript.StartTimer();
-            Destroy(gameObject);
+            this.gameObject.SetActive(false);
         }
     }
         
@@ -23,5 +24,6 @@ public class Boton : MonoBehaviour
     {
         cristal.SetActive(true);
         objetivos.SetActive(false);
+        this.gameObject.SetActive(true);
     }
 }

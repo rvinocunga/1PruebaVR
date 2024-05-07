@@ -15,7 +15,7 @@ public class ObjetivoDiana : MonoBehaviour
         {
             GameManager.Instance.SumarPuntos(valor);
             AudioManager.Instance.ReproducirSonido(sonidoRomper);
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
     }
 }
