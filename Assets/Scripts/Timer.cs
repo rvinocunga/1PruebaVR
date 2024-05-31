@@ -15,17 +15,19 @@ public class Timer : MonoBehaviour
     {
         if (isRunning)
         {
-            textAviso.enabled = false;
+            textAviso.enabled = false; // oculta las instrucciones
             timer -= Time.deltaTime;
             timer = Mathf.Max(timer, 0); // temporizador no caiga por debajo de 0
-            textTimer.text = timer.ToString("f2");
+            textTimer.text = timer.ToString("f2"); // visualiza en el ui el tiempo restante
 
             if (timer <= 0)
             {
                 timer = 0;
-                //Debug.Log("Acabó el temporizador");
+
+                // bbdd
                 scriptDB.enviarPuntuacion();
 
+                // vuelve a la placa
                 scriptBoton.acabaTemporizador();
                 
                 isRunning = false;

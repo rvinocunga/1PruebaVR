@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
 using System;
@@ -11,14 +12,13 @@ public class FirebaseDB : MonoBehaviour
 {
     DatabaseReference reference;
     public TextMeshProUGUI ranking;
+    public TMP_InputField nickname;
 
     string nombreUnico = System.Guid.NewGuid().ToString();
 
     // Start is called before the first frame update
     void Start()
     {
-       // RECUPERA LOS JUGADORES Y PUNTUACIONES
-
        //Debug.Log("Start db");
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         recuperarPuntuaciones();
@@ -26,7 +26,7 @@ public class FirebaseDB : MonoBehaviour
 
     public void recuperarPuntuaciones()
     {
-        Debug.Log("recuperar PUNTUACIONES");
+        //Debug.Log("recuperar PUNTUACIONES");
         reference.GetValueAsync().ContinueWith(task =>
         {
             if (task.IsFaulted)
@@ -35,6 +35,7 @@ public class FirebaseDB : MonoBehaviour
             }
             else if (task.IsCompleted)
             {
+                // recuperamos los datos
                 DataSnapshot playersSnapshot = task.Result;
 
                 // almacenar todo el texto del ranking
@@ -67,11 +68,14 @@ public class FirebaseDB : MonoBehaviour
     {
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         //Debug.Log("Entra al db.enviarPuntuacion: ");
-        reference.Child("Vinocunga").Child("Puntuacion").SetValueAsync(GameManager.Instance.PuntosTotales.ToString()).ContinueWith(task =>
+        reference.Child(nickname.text).Child("Puntuacion").
+        SetValueAsync(GameManager.Instance.PuntosTotales.ToString()).
+        ContinueWith(task =>
         {
             if (task.IsFaulted)
             {
-                Debug.LogError("Error al enviar datos a Firebase: " + task.Exception);
+                Debug.LogError("Error al enviar datos a Firebase: " 
+                + task.Exception);
             }
             else if (task.IsCompleted)
             {

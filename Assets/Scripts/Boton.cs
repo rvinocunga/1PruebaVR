@@ -15,25 +15,25 @@ public class Boton : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            cristal.SetActive(false);
-            objetivos.SetActive(true);
-            timerScript.StartTimer();
-            AudioManager.Instance.Stop();
+            cristal.SetActive(false); // oculta el cristal
+            objetivos.SetActive(true); // muestra las dianas
+            timerScript.StartTimer(); // empieza el temporizador
+            AudioManager.Instance.Stop(); // para el soundtrack
 
-            AudioManager.Instance.ReproducirSonido(inicioRonda);
-            this.gameObject.SetActive(false);
+            AudioManager.Instance.ReproducirSonido(inicioRonda); // reproduce el sonido de ronda
+            this.gameObject.SetActive(false); // oculta la placa
         }
     }
         
     public void acabaTemporizador()
     {
-        cristal.SetActive(true);
-        objetivos.SetActive(false);
-        this.gameObject.SetActive(true);
-        AudioManager.Instance.Stop();
+        cristal.SetActive(true); // muestra el cristal
+        objetivos.SetActive(false); // oculta las dianas
+        this.gameObject.SetActive(true); // vuelve a colocar la placa
+        AudioManager.Instance.Stop(); // para el sonido de ronda
 
         // Esperar 5 segundos y luego cargar la escena "UnJugador"
-        Invoke("CargarEscenaUnJugador", 5f);
+         Invoke("CargarEscenaUnJugador", 5f);
     }
 
     void CargarEscenaUnJugador()

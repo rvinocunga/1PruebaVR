@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 // SE SUBE 
 
-
 public class LogicaVolumen : MonoBehaviour
 {
     public Slider slider;
@@ -40,5 +39,4 @@ public class LogicaVolumen : MonoBehaviour
             imagenMute.enabled = false;
         }
     }
-
 }

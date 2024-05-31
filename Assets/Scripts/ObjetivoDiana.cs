@@ -27,10 +27,10 @@ public class ObjetivoDiana : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Pared")) // Colisión 
+        if (other.CompareTag("Pared"))  
         {
             movingRight = !movingRight; // Invertir dirección
-            //Debug.Log("Colisiona con un trigger");
+            //Debug.Log("Colisiona con pared");
         }
     }
 
