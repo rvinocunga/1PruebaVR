@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "867869676031",
+    "firebase_url": "https://m13proyectovr-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "m13proyectovr",
+    "storage_bucket": "m13proyectovr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:867869676031:android:360cb9862012640f7d57ca",
+        "android_client_info": {
+          "package_name": "com.rogervinocunga"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn1ZxQhuniGFDhoWgYXT7hWI53yelV5PM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
