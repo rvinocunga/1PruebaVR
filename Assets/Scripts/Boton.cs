@@ -8,6 +8,7 @@ public class Boton : MonoBehaviour
     public Timer timerScript; // Referencia al script del temporizador
     public GameObject cristal;
     public GameObject objetivos;
+     public AudioClip inicioRonda;
 
     // Si el personaje toca el cubo
     void OnTriggerEnter(Collider other)
@@ -17,6 +18,9 @@ public class Boton : MonoBehaviour
             cristal.SetActive(false);
             objetivos.SetActive(true);
             timerScript.StartTimer();
+            AudioManager.Instance.Stop();
+
+            AudioManager.Instance.ReproducirSonido(inicioRonda);
             this.gameObject.SetActive(false);
         }
     }
@@ -26,6 +30,7 @@ public class Boton : MonoBehaviour
         cristal.SetActive(true);
         objetivos.SetActive(false);
         this.gameObject.SetActive(true);
+        AudioManager.Instance.Stop();
 
         // Esperar 5 segundos y luego cargar la escena "UnJugador"
         Invoke("CargarEscenaUnJugador", 5f);

@@ -19,6 +19,13 @@ public class AudioManager : MonoBehaviour
             Debug.Log("Más de un AudioManager!");
         }
     }
+    public void Stop()
+    {
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+    }
 
     void Start()
     {

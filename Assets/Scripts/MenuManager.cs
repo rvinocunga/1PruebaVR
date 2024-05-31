@@ -11,10 +11,7 @@ public class MenuManager : MonoBehaviour
 
     public void Multijugador()
     {
-        // Se tendría que abrir una nueva interfaz para 
-        // que elija si crear partida o ver las que están creada
-
-        SceneManager.LoadScene("Demo");
+        SceneManager.LoadScene("Multijugador");
     }
 
     public void BotonQuit()

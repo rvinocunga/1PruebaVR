@@ -14,13 +14,12 @@ public class FirebaseDB : MonoBehaviour
 
     string nombreUnico = System.Guid.NewGuid().ToString();
 
-
     // Start is called before the first frame update
     void Start()
     {
        // RECUPERA LOS JUGADORES Y PUNTUACIONES
 
-       Debug.Log("Start db");
+       //Debug.Log("Start db");
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         recuperarPuntuaciones();
     }
@@ -38,18 +37,18 @@ public class FirebaseDB : MonoBehaviour
             {
                 DataSnapshot playersSnapshot = task.Result;
 
-                // Variable para almacenar todo el texto del ranking
+                // almacenar todo el texto del ranking
                 string rankingText = "";
 
                 // Iterar sobre cada jugador
                 foreach (DataSnapshot playerSnapshot in playersSnapshot.Children)
                 {
-                    string jugador = playerSnapshot.Key; // Obtener el nombre del jugador
+                    string jugador = playerSnapshot.Key; // Obtener el nombre 
 
-                    // Obtener la puntuación del jugador
+                    // Obtener la puntuación 
                     int puntuacion = Convert.ToInt32(playerSnapshot.Child("Puntuacion").Value);
 
-                    // Construir la cadena de texto con el nombre del jugador y su puntuación
+                    // nombre del jugador y su puntuación
                     string entry = "Jugador: " + jugador + ", Puntuacion: " + puntuacion;
 
                     // Concatenar la entrada al texto del ranking, separado por un salto de línea
