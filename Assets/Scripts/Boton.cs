@@ -10,6 +10,7 @@ public class Boton : MonoBehaviour
     public GameObject objetivos;
      public AudioClip inicioRonda;
 
+     // boton.cs
     // Si el personaje toca el cubo
     void OnTriggerEnter(Collider other)
     {
@@ -25,6 +26,7 @@ public class Boton : MonoBehaviour
         }
     }
         
+    // boton.cs
     public void acabaTemporizador()
     {
         cristal.SetActive(true); // muestra el cristal
@@ -33,7 +35,7 @@ public class Boton : MonoBehaviour
         AudioManager.Instance.Stop(); // para el sonido de ronda
 
         // Esperar 5 segundos y luego cargar la escena "UnJugador"
-         Invoke("CargarEscenaUnJugador", 5f);
+        Invoke("CargarEscenaUnJugador", 5f);
     }
 
     void CargarEscenaUnJugador()
