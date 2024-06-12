@@ -8,6 +8,7 @@ using Photon.Pun;
 
 public class NetworkPlayer : MonoBehaviour
 {
+    public int vida = 100;
 
     public Transform head;
     public Transform leftHand;
@@ -32,6 +33,9 @@ public class NetworkPlayer : MonoBehaviour
     // Update is called once per frame
      void Update()
     {
+        if(vida <= 0) {
+            Debug.Log("Player sin vida");
+        }
         if (photonView.IsMine)
         {
             rightHand.gameObject.SetActive(false);
@@ -49,4 +53,5 @@ public class NetworkPlayer : MonoBehaviour
         target.position = rigTransform.position;
         target.rotation = rigTransform.rotation;
     }
+
 }

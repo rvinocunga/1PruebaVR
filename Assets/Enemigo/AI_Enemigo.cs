@@ -8,21 +8,25 @@ public class AI_Enemigo : MonoBehaviour
     public Transform Objetivo;
     public float Velocidad;
     public NavMeshAgent IA;
+    
+    public int damage;
+    //public GameObject Player;
 
+    // 
     void Update()
     {
         IA.speed = Velocidad;
         IA.SetDestination(Objetivo.position);
     }
 
-    private void OnCollisionEnter(Collision collision)
-{Debug.Log("COlisiona ");
-    if (collision.gameObject.CompareTag("Player"))
+    // para destruirlo
+private void OnTriggerEnter(Collider other)
+{
+    if (other.CompareTag("Arma"))
     {
-        Debug.Log("COlisiona jugador");
-        // Destruir este objeto cuando colisiona con el jugador
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }
+
 }
  
