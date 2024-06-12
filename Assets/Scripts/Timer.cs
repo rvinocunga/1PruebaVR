@@ -15,9 +15,9 @@ public class Timer : MonoBehaviour
     {
         if (isRunning)
         {
-            textAviso.enabled = false; // oculta las instrucciones
+            textAviso.enabled = false; // oculta las instrucciones UI
             timer -= Time.deltaTime;
-            timer = Mathf.Max(timer, 0); // temporizador no caiga por debajo de 0
+            timer = Mathf.Max(timer, 0); // temporizador no baje de 0
             textTimer.text = timer.ToString("f2"); // visualiza en el ui el tiempo restante
 
             if (timer <= 0)
@@ -35,7 +35,7 @@ public class Timer : MonoBehaviour
         }
     }
 
-    // Método para iniciar el temporizador
+    // iniciar temporizador
     public void StartTimer()
     {
         isRunning = true;

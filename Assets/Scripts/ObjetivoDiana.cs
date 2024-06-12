@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjetivoDiana : MonoBehaviour
 {
     public float speedMovement = 2f;
-    private bool movingRight = true; // Variable para rastrear la dirección del movimiento
+    private bool movingRight = true; // para cambiar direccion
 
     public int valor;
     public AudioClip sonidoRomper;
@@ -15,25 +15,29 @@ public class ObjetivoDiana : MonoBehaviour
         MoveObject();
     }
 
+    // ObjetivoDiana.cs
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Misil"))
         {
+            // llama al metodo de la instancia correspondiente 
             GameManager.Instance.SumarPuntos(valor);
             AudioManager.Instance.ReproducirSonido(sonidoRomper);
             this.gameObject.SetActive(false);
         }
     }
 
+    // ObjetivoDiana.cs
     private void OnTriggerEnter(Collider other)
     {
+        // si choca con tag Pared
         if (other.CompareTag("Pared"))  
         {
             movingRight = !movingRight; // Invertir dirección
-            //Debug.Log("Colisiona con pared");
         }
     }
 
+    // metodo en Update()
     void MoveObject()
     {
         Vector3 movementDirection = movingRight ? Vector3.right : Vector3.left;

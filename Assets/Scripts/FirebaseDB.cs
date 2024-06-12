@@ -19,7 +19,6 @@ public class FirebaseDB : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       //Debug.Log("Start db");
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         recuperarPuntuaciones();
     }
@@ -62,7 +61,6 @@ public class FirebaseDB : MonoBehaviour
             }
         });
     }
-
 
     public void enviarPuntuacion()
     {

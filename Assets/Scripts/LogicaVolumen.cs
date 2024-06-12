@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-// SE SUBE 
-
 public class LogicaVolumen : MonoBehaviour
 {
     public Slider slider;
     public float sliderValue;
     public Image imagenMute;
 
+    //LogicaVolumen.cs
 
     // Start is called before the first frame update
     void Start()
